@@ -42,15 +42,16 @@ function checkCashRegister(price, cash, cid) {
   else{
     while (change > 0){
     for (let i = 0 ; i < cid.length ; i++) {
-      console.log(changeKeyReversed[i][1]);
-      if (change < changeKeyReversed[i][1]) {
-        console.log("less than");
+      //console.log(changeKeyReversed[i][1]);
+      if (change <= changeKeyReversed[i][1]) {
+        
+        console.log("change, " + change + " < " + "changeKeyReversed " + changeKeyReversed[i][1]);
       }
       else {
-        console.log("greater than");
+        console.log("change, " + change + " > " + "changeKeyReversed " + changeKeyReversed[i][1]);
       }
     }
   }
-  console.log("total cid = " + total.toFixed(2));
+  //console.log("total cid = " + total.toFixed(2));
 }
 }
