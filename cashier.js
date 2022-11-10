@@ -3,7 +3,6 @@ function checkCashRegister(price, cash, cid) {
   let total = 0;
   let change = cash - price;
   let changeReturnArr = [];
-  //cid = cid.reverse();
 
   console.log("change = " + change);
   const changeKey = [
@@ -39,19 +38,15 @@ function checkCashRegister(price, cash, cid) {
     console.log(object1);
     return object1;
   }
-  else{
-    while (change > 0){
+  else {
     for (let i = 0 ; i < cid.length ; i++) {
-      //console.log(changeKeyReversed[i][1]);
-      if (change <= changeKeyReversed[i][1]) {
+      if (change >= changeKeyReversed[i][1]) {
+        console.log("change(" + change + ") >= " + "changeKeyReversed[i][1] " + changeKeyReversed[i][1]);
         
-        console.log("change, " + change + " < " + "changeKeyReversed " + changeKeyReversed[i][1]);
       }
       else {
-        console.log("change, " + change + " > " + "changeKeyReversed " + changeKeyReversed[i][1]);
+
       }
     }
   }
-  //console.log("total cid = " + total.toFixed(2));
-}
 }
