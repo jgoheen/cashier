@@ -1,8 +1,18 @@
 function checkCashRegister(price, cash, cid) {
-  
   let total = 0;
   let change = cash - price;
-  let changeReturnArr = [];
+  let changeReturnArr = [
+    ["PENNY", 0],
+    ["NICKEL", 0],
+    ["DIME", 0],
+    ["QUARTER", 0],
+    ["ONE", 0],
+    ["FIVE", 0],
+    ["TEN", 0],
+    ["TWENTY", 0],
+    ["ONE HUNDRED", 0]
+    ];
+    changeReturnArr = changeReturnArr.reverse();
 
   console.log("change = " + change);
   const changeKey = [
@@ -41,12 +51,15 @@ function checkCashRegister(price, cash, cid) {
   else {
     for (let i = 0 ; i < cid.length ; i++) {
       if (change >= changeKeyReversed[i][1]) {
-        console.log("change(" + change + ") >= " + "changeKeyReversed[i][1] " + changeKeyReversed[i][1]);
-        
-      }
-      else {
-
+        let temp = 0;
+        while ((change >= changeKeyReversed[i][1])) {
+          change = change - changeKeyReversed[i][1];
+          changeReturnArr[i][1]+=1;
+          console.log("change = " + change);
+        }
+        console.log(changeReturnArr);
       }
     }
+    return changeReturnArr;
   }
 }
